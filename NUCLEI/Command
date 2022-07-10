@@ -1,0 +1,1 @@
+nuclei.exe -l found.txt u -t C:\Users\*******\Downloads\nuclei-templates-9.0.9 -es info,low,medium -silent -o nucli-out.txt
